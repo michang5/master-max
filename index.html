@@ -548,7 +548,6 @@ $(function() {
   var slider = $('#lightSlider').lightSlider({
     gallery: true,
     item: 1,
-    loop: true,
     slideMargin: 0,
     thumbItem: 9
   });
@@ -556,12 +555,11 @@ $(function() {
   $(".grid-item a").each(function(index, element){
     var i = index + 1;
     $(element).on("click", function(e){
-      console.log(i);
-      slider.goToSlide(i); // begin: 1
+      if (i !== 1) slider.goToSlide(i); // begin: 1
+      $('#gallery').modal('toggle');
       $('#gallery').on('shown.bs.modal', function(){
         slider.refresh();
       });
-      $('#gallery').modal('toggle');
     });
   });
 });
