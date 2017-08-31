@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ------------ base ------------ */
 body, html {
   min-height: 100% !important;
@@ -96,7 +97,7 @@ ul, li {
   cursor: pointer;
   top: 12px;
   right: 12px;
-  background: #F7F7F7;
+  background: #111;
 }
 .close:hover {
   background-color: transparent;
@@ -110,12 +111,12 @@ ul, li {
 .close::before, .close::after {
   content: '';
   position: absolute;
-  height: 1px;
+  height: 2px;
   width: 100%;
   top: 50%;
   left: 0;
   margin-top: -1px;
-  background: #4A4A4A;
+  background: #fff;
 }
 .close::before {
   -moz-transform: rotate(45deg);
@@ -143,10 +144,14 @@ ul, li {
 
 .modal-content {
   box-shadow: none;
+  height: 100%;
+  border: 0;
 }
 
 .modal-dialog {
   width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 .modal-content {
@@ -196,6 +201,7 @@ select {
 @media only screen and (max-width: 767px) {
   .navbar-nav {
     width: auto;
+    margin: 0;
   }
 }
 
@@ -237,18 +243,35 @@ select {
     width: auto;
   }
   .navbar-header .navbar-brand {
-    display: block;
     float: left;
-    padding: 10px 0;
+    padding: 0 10px;
+    height: 40px;
+    margin: 30px 0 10px;
+  }
+  .navbar-header .navbar-brand img {
+    height: 26px;
+  }
+  .navbar-header .navbar-brand:after {
+    border-bottom: 0;
   }
 }
 
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
   background-color: transparent;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ddd;
 }
 
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
   max-height: 460px;
+}
+
+.navbar-collapse {
+  padding: 0;
 }
 
 #navigation {
@@ -324,9 +347,10 @@ select {
     background: #fff;
   }
   #navigation .nav > li > a {
-    font-size: 16px;
-    padding: 0;
+    font-size: 20px;
+    padding: 6px 0 8px;
     border-left: 0 !important;
+    border-bottom: 1px solid #ddd;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -338,7 +362,7 @@ select {
   }
   #navigation .navbar-toggle {
     padding: 6px 15px;
-    margin: 6px 0;
+    margin: 26px 0 0;
     font-size: 1.2em;
     border: 0;
   }
@@ -346,6 +370,11 @@ select {
 
 .main-container {
   padding-top: 180px;
+}
+@media only screen and (max-width: 767px) {
+  .main-container {
+    padding-top: 50px;
+  }
 }
 
 .container {
@@ -400,9 +429,55 @@ select {
   max-width: 100%;
 }
 
+.lSAction > a {
+  background-image: none;
+  width: 60px;
+  height: 60px;
+  top: 48%;
+  cursor: pointer;
+  z-index: 9;
+  background: #111;
+  text-decoration: none;
+  opacity: 1;
+  text-align: center;
+  line-height: 60px;
+}
+.lSAction > a:after {
+  font-family: "FontAwesome";
+  display: block;
+  font-size: 30px;
+  color: #fff;
+}
+.lSAction > a.lSNext {
+  right: 9px;
+}
+.lSAction > a.lSNext:after {
+  content: "";
+  padding-left: 4px;
+}
+.lSAction > a.lSPrev {
+  left: 9px;
+}
+.lSAction > a.lSPrev:after {
+  content: "";
+  padding-right: 4px;
+}
+@media only screen and (max-width: 768px) {
+  .lSAction > a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+  }
+  .lSAction > a.lSNext {
+    right: 0;
+  }
+  .lSAction > a.lSPrev {
+    left: 0;
+  }
+}
+
 .gallery-slider {
-  width: 600px;
-  height: 600px;
+  width: 80%;
   margin: 0 auto;
 }
 .gallery-slider ul {
@@ -415,12 +490,43 @@ select {
   float: left;
   margin-right: 6px;
   cursor: pointer;
-  height: 600px !important;
   text-align: center;
 }
 .gallery-slider ul li img {
   max-width: 100%;
   max-height: 100%;
+}
+.gallery-slider ul.lightSlider li {
+  height: 600px;
+}
+@media only screen and (max-width: 768px) {
+  .gallery-slider {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .gallery-slider ul.lightSlider li {
+    height: 800px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .gallery-slider ul.lightSlider li {
+    height: 560px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .gallery-slider ul.lightSlider li {
+    height: 520px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .gallery-slider ul.lightSlider li {
+    height: 435px;
+  }
+}
+
+.lSSlideOuter .lSPager.lSGallery li.active, .lSSlideOuter .lSPager.lSGallery li:hover {
+  border-radius: 0;
 }
 
 /* Modal */
