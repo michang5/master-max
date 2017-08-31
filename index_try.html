@@ -28,7 +28,76 @@
 	
 
   
-  
+  <style>
+    body {
+  font: 1em Arial,sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Modal */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .8;
+  z-index: 100;
+}
+
+.modal {
+  display: none;
+  width: 600px;
+  padding: 20px;
+  background-color: #fff;
+  z-index: 101;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  text-decoration: none;
+  display: block;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  text-align: center;
+  color: #000;
+}
+.close:hover {
+  background-color: #eee;
+}
+.demo {
+    width:450px;
+}
+ul {
+    list-style: none outside none;
+    padding-left: 0;
+    margin-bottom:0;
+}
+li {
+    display: block;
+    float: left;
+    margin-right: 6px;
+    cursor:pointer;
+}
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+    </style>
   
   <link rel='stylesheet prefetch' href='http//sachinchoolur.github.io/lightslider/dist/css/lightslider.css'>
 
@@ -63,7 +132,6 @@
     </nav>
     <!-- /.Navigation -->
 
-<!--
     <div class="main-container">
         <div class="container-fluid clearfix" >
             <div class="grid">
@@ -103,7 +171,6 @@
 
     </div>
  
--->
 
 
 <div class="container">
@@ -112,7 +179,7 @@
   <a href="#" id="triggle">Open Modal</a>
 </div>
 <div class="overlay"></div>
-<div class="modal-custom">
+<div class="modal">
   <div class="demo">
     <ul id="lightSlider">
         <li data-thumb="https://sachinchoolur.github.io/lightslider/img/thumb/cS-1.jpg">
@@ -158,52 +225,54 @@
 
 
 
+
 	<footer>Copyright © MasterMax 2017</footer>	
 
 	
-	<!--jQuery--> 
-	<script type="text/javascript" src="js/jquery-2.2.4.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js" ></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.0/masonry.pkgd.min.js" ></script>
-	<script type="text/javascript" src="http://sachinchoolur.github.io/lightslider/dist/js/lightslider.js"></script>
-    <script src='https://sachinchoolur.github.io/lightslider/dist/js/lightslider.js'></script>
-<!--    <script type="text/javascript" src="js/script.js" ></script>-->
+	 <!--jQuery-->
+    <script type="text/javascript" src="js/jquery-2.2.4.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://masonry.desandro.com/masonry.pkgd.js"></script>
+    <script type="text/javascript" src="https://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 
     <script>
-     
-    $(document).ready(function(){
-  
-  // Center Modal Window
-  $('.modal-custom').css({
-      position: 'absolute',
-      top:'50%',
-      left:'50%',
-      margin:'-'+($('.modal-custom').height() / 2)+'px 0 0 -'+($('.modal-custom').width() / 2)+'px'
-  });  
-  
-  // Triggle
-  $('#triggle').click(function(e){
-    e.preventDefault();
-    $('.modal-custom').fadeIn(400);
-    $('.overlay').fadeIn(400);
-  });
-  
-  // Close Modal Windwo
-  $('a.close').click(function(e) {
-    e.preventDefault();
-    $('.modal-custom').fadeOut(800);
-    $('.overlay').fadeOut(800);
-  });
-  
-});
+//$(document).ready(function(){
+//
+//  var slider = $('#lightSlider').lightSlider({
+//      gallery: true,
+//      item: 1,
+//      loop:true,
+//      slideMargin: 0,
+//      thumbItem: 9
+//  });
+//  
+//  // Center Modal Window
+//  $('.modal').css({
+//      position: 'absolute',
+//      top:'50%',
+//      left:'50%',
+//      margin:'-'+($('.modal').height() / 2)+'px 0 0 -'+($('.modal').width() / 2)+'px'
+//  });  
+//  
+//  // Triggle
+//  $('#triggle').click(function(e){
+//    e.preventDefault();
+//    $('.modal').fadeIn(400);
+//    $('.overlay').fadeIn(400);
+//    slider.refresh();
+//  });
+//  
+//  // Close Modal Windwo
+//  $('a.close').click(function(e) {
+//    e.preventDefault();
+//    $('.modal').fadeOut(800);
+//    $('.overlay').fadeOut(800);
+//  });
+//  
+//});
 
-$('#lightSlider').lightSlider({
-    gallery: true,
-    item: 1,
-    loop:true,
-    slideMargin: 0,
-    thumbItem: 9
-});
 
   </script>
 

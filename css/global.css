@@ -369,7 +369,7 @@ select {
 }
 
 .main-container {
-  padding-top: 180px;
+  padding-top: 120px;
 }
 @media only screen and (max-width: 767px) {
   .main-container {
