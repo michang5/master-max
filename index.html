@@ -539,25 +539,26 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script>
-        $(function() {
-            var slider = $('#lightSlider').lightSlider({
-                gallery: true,
-                item: 1,
-                slideMargin: 0,
-                thumbItem: 9
-            });
-            window.slider = slider;
-            $(".grid-item a").each(function(index, element) {
-                var i = index + 1;
-                $(element).on("click", function(e) {
-                    if (i !== 1) slider.goToSlide(i); // begin: 1
-                    $('#gallery').modal('toggle');
-                    $('#gallery').on('shown.bs.modal', function() {
-                        slider.refresh();
-                    });
-                });
-            });
-        });
+$(function() {
+  var slider = $('#lightSlider').lightSlider({
+    gallery: true,
+    item: 1,
+    slideMargin: 0,
+    thumbItem: 9
+  });
+  window.slider = slider;
+  $(".grid-item a").each(function(index, element){
+    var i = index;
+    $(element).on("click", function(e){
+      if (window.clicked === 'undefined') window.clicked = i;
+      if (i !== window.clicked) slider.goToSlide(i); // begin: 1
+      $('#gallery').modal('toggle');
+    });
+  });
+  $('#gallery').on('shown.bs.modal', function(){
+    slider.refresh();
+  });
+});
     </script>
 </body>
 </html>
