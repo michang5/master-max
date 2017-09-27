@@ -99,6 +99,15 @@ ul, li {
   list-style: none;
 }
 
+.container.same-height > .row {
+  display: -webkit-flex;
+  display: flex;
+}
+.container.same-height > .row > [class*="col"] {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+
 .close {
   position: absolute;
   display: inline-block;
@@ -614,6 +623,7 @@ footer .copyright li {
 }
 
 .store-list {
+  width: 100%;
   padding: 20px;
   margin-bottom: 20px;
   border: 1px solid #ddd;
