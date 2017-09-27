@@ -412,7 +412,7 @@ select {
 }
 
 .main-container {
-  padding-top: 180px;
+  padding-top: 200px;
 }
 .main-container h2, .main-container h3 {
   text-align: center;
@@ -422,6 +422,13 @@ select {
   color: #846531;
   font-weight: normal;
   font-family: 'helvetica', 'Arial', sans-serif, "Microsoft JhengHei";
+}
+#about .main-container h2, #about .main-container h3 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+#about .main-container p {
+  margin-bottom: 40px;
 }
 @media only screen and (max-width: 767px) {
   .main-container {

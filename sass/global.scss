@@ -470,7 +470,7 @@ select {
 }
 .main-container {
 //    padding-top: 120px; 
-    padding-top: 180px;
+    padding-top: 200px;
 //    @include respond-to (only-device){
 //        padding-top: 100px;
 //    }
@@ -482,6 +482,18 @@ select {
         color: $gold;
         font-weight: normal;
         font-family: 'helvetica', 'Arial', sans-serif, "Microsoft JhengHei";
+    }
+    #about & {
+        h2, h3 {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 40px;
+        }
+//        h3+p {
+//            margin-bottom: 10px;
+//        }
     }
     @include respond-to (only-mobile){
 //        padding-top: 50px;
