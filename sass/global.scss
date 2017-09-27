@@ -30,38 +30,49 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'times', "source-han-serif-tc", sans-serif, "Microsoft JhengHei";
 }
 *:hover {
-	@include transition(color, .5s, ease-in);
+    -webkit-transition: all .3s ease-in; /* Safari */
+    transition: all .3s ease-in;
 }
 h1 {
 	font-weight: 900;
 	font-size: 4em;
 }
 h2 {
-	font-size: 40px;
+	font-size: $xxxxxxl-font;
     line-height: 1.15;
+    @include respond-to (only-mobile){
+		font-size: 30px;
+	}
 }
 h3 {
 	line-height: 1.2;
 	font-weight: 600;
 	color: $dark-gray;
-	font-size: 32px;
+	font-size: $xxxxxl-font;
+}
+h4 {
+  font-size: 24px;  
 }
 p, li {
-	font-size: 17px;
+	font-size: 20px;
 	font-weight: normal;
 	margin-bottom: 0;
 	color: $dark-gray;
 	line-height: 1.9;
 	letter-spacing: .05em;
+    font-family: 'helvetica', 'Arial', sans-serif, "Microsoft JhengHei";
 }
 a {
 	color: $primary-color;
+    cursor: pointer;
 	@include transition(all, .5s, ease-in);
 	&:hover, &:focus {
 		text-decoration: underline;
 	}
 }
-
+hr {
+    margin: 50px auto;
+}
 .clearfix {
 	@include clearfix;
 }
@@ -94,7 +105,7 @@ ul, li {
 	&::after {
 		content: '';
 		position: absolute;
-		height: 2px;
+		height: 3px;
 		width: 100%;
 		top: 50%;
 		left: 0;
@@ -129,6 +140,18 @@ ul, li {
 }
 .modal-content {
 //	width: 90%;
+    h4 {
+        span {
+            font-size: 18px;
+            padding-left: 10px;
+            font-family: 'helvetica', 'Arial', sans-serif, "Microsoft JhengHei";
+            &:before {
+                content: ('|');
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    }
 	margin: 0 auto;
 	img {
 		margin: 0 auto;
@@ -136,9 +159,43 @@ ul, li {
 	@include respond-to (only-device){
 		width: 100%;
 	}
-
+}
+.modal-body {
+    height: 100%;
 }
 //btn style
+.btn {
+    font-family: 'helvetica', 'Arial', sans-serif, "Microsoft JhengHei";
+}
+.btn-default {
+    background: $black;
+    color: $white;
+    font-size: $xl-font;
+    &:hover, 
+    &:focus, &:active:focus,&.active:focus,
+    &.focus, &:active.focus,&.active.focus {
+        background: $light-Camel;
+        box-shadow: none;
+    }
+    a {
+        color: $white;
+        display: block;
+        &:hover, &:focus, &:active:focus,&.active:focus,
+        &.focus, &:active.focus,&.active.focus {
+            
+            background: $light-Camel;
+            box-shadow: none;
+            color: $black;
+        }
+    }
+}
+div.btn-default {
+    padding: 0;
+    a {
+        padding: 6px 12px;
+        text-decoration: none;
+    }
+}
 //.btn {
 //	span {
 //		padding: 0 5px;
@@ -162,7 +219,7 @@ ul, li {
 .btn:focus,.btn:active:focus,.btn.active:focus,
 .btn.focus,.btn:active.focus,.btn.active.focus {
     outline: none;
-    border: 0;
+//    border: 0;
     box-shadow: none;
 }
 //.btn-primary {
@@ -224,22 +281,6 @@ select {
         color: $gray;
     }
 }
-
-.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-	background: $white;
-	color: $black;
-}
-.navbar-nav {
-    width: 100%;
-    text-align: center;
-//    margin-top: 10px;
-    border-bottom: 1px solid #eee;
-    @include respond-to (only-mobile) {
-        width: auto;
-        margin: 0;
-    }
-}
-
 .navbar-header {
     margin: 0 auto;
     text-align: center;
@@ -281,84 +322,101 @@ select {
         }
     }
 }
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-    background-color: transparent;
-}
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
-    border-color: $medium-gray;
-}
-.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
-    max-height: 460px;
-}
-.navbar-collapse {
-    padding: 0;
-}
-//.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-//    background: $yellow;
-//}
-#navigation {
-	background: $white;
+.navbar-default {
+    background: $white;
 	border: none;
 	padding: 0;
 	z-index: 999;
 	width:100%;
-	.nav > li {
-		border: none;
-        margin-left: -1px;
-        float: none;
-        display: inline-block;
-		@include transition(all ,.5s, ease-in-out);
-		> a {
-			font-size: 22px;
-			letter-spacing: .1em;
-			line-height: 50px;
-			@include transition(all ,.5s, ease-in-out);
-			color: $primary-color;
-            padding: 0 13px;
-            font-weight: bold;
-			&:hover, &:focus {
-				background: rgba($light-Camel,.6);
-				color: $black;
-                text-decoration: none;
-			}
-		}
-	}
-	.nav > li.active {
-		background: #fff;
-	}
-    
-	.dropdown {
-		.dropdown-menu {
-			border: 0;
-			border-radius: 0;
-			background: $white;
-			padding: 0;
-            text-align: center;
-			> li {
-				padding: 0;
-				a {
-					padding: 12px 20px;
-//                    background: $black;
+    border-bottom: 1px solid #eee;
+    .navbar-toggle {
+        font-weight: 700;
+        &:hover, &:focus  {
+            background-color: transparent;
+        }
+    }
+    .navbar-collapse, .navbar-form {
+        border-color: $medium-gray;
+    }
+    &.navbar-fixed-top, &.navbar-fixed-bottom {
+        .navbar-collapse {
+            max-height: 460px;
+            padding: 0;
+        }
+    }
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+        @include respond-to (only-mobile) {
+            width: auto;
+            margin: 0;
+        }
+    }
+    .nav {
+         > li {
+            border: none;
+            margin-left: -1px;
+            float: none;
+            display: inline-block;
+            @include transition(all ,.5s, ease-in-out);
+            &.active {
+                background: #fff;
+            }
+            > a {
+                font-size: 22px;
+                letter-spacing: .1em;
+                line-height: 50px;
+                @include transition(all ,.5s, ease-in-out);
+                color: $primary-color;
+                padding: 0 13px;
+                font-weight: bold;
+                &:hover, &:focus {
+                    background: rgba($light-Camel,.6);
                     color: $black;
-                    background-color: rgba(orange,0.1);
-                    &:hover {
-                        background-color: orange;
-                        
-//                        background: red;
-                    }
-				}
-			}
-		}
-		&.open {
-			a {
-				color: $black;
-			}
-			.dropdown-menu {
-			}
-		}
-	}
+                    text-decoration: none;
+                }
+            }
+             .open {
+                 > a {
+                    background: $white;
+                    color: $black;
+                     &:hover, &:focus {
+                        background: $white;
+                        color: $black;
+                     }
+                 }
+             }
+        }
+    }
+//	.dropdown {
+//		.dropdown-menu {
+//			border: 0;
+//			border-radius: 0;
+//			background: $white;
+//			padding: 0;
+//            text-align: center;
+//			> li {
+//				padding: 0;
+//				a {
+//					padding: 12px 20px;
+////                    background: $black;
+//                    color: $black;
+//                    background-color: rgba(orange,0.1);
+//                    &:hover {
+//                        background-color: orange;
+//
+//                    }
+//				}
+//			}
+//		}
+//		&.open {
+//			a {
+//				color: $black;
+//			}
+//			.dropdown-menu {
+//			}
+//		}
+//	}
 	@include respond-to (only-mobile){
 		.logo {
 			margin: 4px 0;
@@ -390,20 +448,29 @@ select {
 		.navbar-toggle {
 			padding: 6px 15px;
 			margin: 26px 0 0;
-			font-size: 1.2em;
-//			color: $yellow;
+			font-size: $xl-font;
             border: 0;
 		}
 	}
 }
 .main-container {
-    padding-top: 120px; 
-//    padding-top: 180px;
+//    padding-top: 120px; 
+    padding-top: 180px;
 //    @include respond-to (only-device){
 //        padding-top: 100px;
 //    }
+    h2, h3 {
+        text-align: center;
+    }
+    h3 {
+        font-size: 24px;
+        color: $gold;
+        font-weight: normal;
+        font-family: 'helvetica', 'Arial', sans-serif, "Microsoft JhengHei";
+    }
     @include respond-to (only-mobile){
-        padding-top: 50px;
+//        padding-top: 50px;
+        padding-top: 100px;
     }
 }
 .container {
@@ -607,6 +674,100 @@ footer {
             li {
                 font-size: 13px;
             }
+        }
+    }
+}
+///////// store
+#store {
+    h3 {
+        
+    }
+}
+.store-list {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid $medium-gray;
+//    &:nth-of-type(1) {
+//        border-bottom: 1px solid $medium-gray;
+//    }
+    h4 {
+        margin-bottom: 0;
+        text-align: center;
+    }
+    .info {
+        @include clearfix;
+        padding: 7px 0;
+        > a {
+//            padding-top: 12px;
+            font-size: $xl-font;
+            font-family: 'helvetica', 'Arial', sans-serif, "Microsoft JhengHei";
+            padding-left: 0;
+            &:hover {
+                color: $red;
+            }
+        }
+        .btn {
+            i {
+                padding-right: 10px;
+            }
+        }
+        div.btn.col-xs-5 {
+            padding: 0;
+            a {
+//                padding: 6px 12px;
+//                color: $white;
+//                display: block;
+//                &:hover, &:focus {
+//                    color: $black;
+//                    text-decoration: none;
+//                }
+            }
+        }
+        @media screen and (max-width: 375px) {
+            > a {
+                padding-right: 0;
+            }
+            [class*=col-xs] {
+                width: 100%;
+            }
+        }
+    }
+    p {
+        span {
+            font-size: 16px;
+            
+        }
+    }
+}
+.store-wrapper {
+//    display: table;
+    width: 100%;
+    height: 92%;
+    position: relative;
+    overflow: hidden;
+    .store {
+        width: 100%;
+        height: 100%;
+        .store-map {
+            width: 100%;
+            height: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: 1px solid $black;
+        } 
+//        img {
+////            height: 100%;
+//            width: 100%;
+//        }
+    }
+    .btn {
+        position: absolute;
+        left: 5%;
+        bottom: 10px;
+        width: 90%;
+        a {
+            padding: 12px;
         }
     }
 }
