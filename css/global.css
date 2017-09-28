@@ -205,6 +205,14 @@ ul, li {
   .modal-content {
     width: 100%;
   }
+  .modal-content h4 span {
+    display: block;
+    padding: 0;
+  }
+  .modal-content h4 span:before {
+    content: '';
+    padding: 0;
+  }
 }
 
 .modal-body {
@@ -710,6 +718,11 @@ footer .copyright li {
 }
 .store-wrapper .btn a {
   padding: 12px;
+}
+@media only screen and (max-width: 767px) {
+  .store-wrapper {
+    height: 84%;
+  }
 }
 
 #nav .nav {

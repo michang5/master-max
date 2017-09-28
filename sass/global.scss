@@ -179,6 +179,16 @@ ul, li {
 	}
 	@include respond-to (only-device){
 		width: 100%;
+        h4 {
+            span {
+                display: block;
+                padding: 0;
+                &:before {
+                    content: '';
+                    padding: 0;
+                }
+            }
+        }
 	}
 }
 .modal-body {
@@ -799,6 +809,9 @@ footer {
         a {
             padding: 12px;
         }
+    }
+    @include respond-to (only-mobile){
+        height: 84%;
     }
 }
 #nav {
