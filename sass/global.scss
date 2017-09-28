@@ -94,6 +94,12 @@ ul, li {
                 display: -webkit-inline-flex;
                 display: inline-flex;
             }
+            @include respond-to (only-mobile){
+                display: block;
+                >[class*="col"] {
+                    display: block;
+                }
+            }
         }
     }
 }
@@ -784,10 +790,6 @@ footer {
             background-size: cover;
             border: 1px solid $black;
         } 
-//        img {
-////            height: 100%;
-//            width: 100%;
-//        }
     }
     .btn {
         position: absolute;
@@ -799,74 +801,82 @@ footer {
         }
     }
 }
-//-------------------------------------
-//
-//body {
-//  font: 1em Arial,sans-serif;
-//  margin: 0;
-//  padding: 0;
-//}
-//.container {
-//  width: 600px;
-//  margin: 0 auto;
-//  padding: 20px;
-//}
+#nav {
+    .nav {
+        background: $black;
+    }
+    .nav a {
+  color: black;
+  font-style: italic;
+}
 
-/* Modal */
-//.overlay {
-//  display: none;
-//  position: fixed;
-//  top: 0;
-//  left: 0;
-//  width: 100%;
-//  height: 100%;
-//  background-color: #000;
-//  opacity: .8;
-//  z-index: 100;
-//}
-//
-//.modal-custom {
-//  display: none;
-//  width: 600px;
-//  padding: 20px;
-//  background-color: #fff;
-//  z-index: 101;
-//}
-//
-//.close {
-//  position: absolute;
-//  right: 10px;
-//  top: 10px;
-//  text-decoration: none;
-//  display: block;
-//  width: 20px;
-//  height: 20px;
-//  font-size: 14px;
-//  font-weight: bold;
-//  line-height: 20px;
-//  text-align: center;
-//  color: #000;
-//}
-//.close:hover {
-//  background-color: #eee;
-//}
-//.demo {
-//    width:450px;
-//}
-//ul {
-//    list-style: none outside none;
-//    padding-left: 0;
-//    margin-bottom:0;
-//}
-//li {
-//    display: block;
-//    float: left;
-//    margin-right: 6px;
-//    cursor:pointer;
-//}
-//img {
-//    display: block;
-//    height: auto;
-//    max-width: 100%;
-//}
+.nav li a:hover,
+.nav li a:focus {
+  background: #86c5da;
+}
 
+.nav .active {
+  font-weight: bold;
+  background: #72bcd4;
+}
+
+
+
+.nav .active .nav {
+  display: block;
+}
+
+.nav .nav a {
+  font-weight: normal;
+  font-size: .85em;
+}
+
+.nav .nav span {
+  margin: 0 5px 0 2px;
+}
+
+.nav .nav .active a,
+.nav .nav .active:hover a,
+.nav .nav .active:focus a {
+  font-weight: bold;
+  padding-left: 30px;
+  border-left: 5px solid black;
+}
+
+.nav .nav .active span,
+.nav .nav .active:hover span,
+.nav .nav .active:focus span {
+  display: none;
+}
+
+.application {
+  border-top: 1px solid #c1e1ec;
+}
+
+.affix-top {
+  position: relative;
+}
+
+.affix {
+  top: 180px;
+}
+
+.affix, 
+.affix-bottom {
+    width: 213px;
+}
+
+.affix-bottom {
+  position: absolute;
+}
+}
+
+
+
+
+@media (min-width:1200px) {
+  .affix, 
+  .affix-bottom {
+    width: 263px;
+  }
+}

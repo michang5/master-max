@@ -107,6 +107,14 @@ ul, li {
   display: -webkit-inline-flex;
   display: inline-flex;
 }
+@media only screen and (max-width: 767px) {
+  .container.same-height > .row {
+    display: block;
+  }
+  .container.same-height > .row > [class*="col"] {
+    display: block;
+  }
+}
 
 .close {
   position: absolute;
@@ -704,4 +712,63 @@ footer .copyright li {
   padding: 12px;
 }
 
-/* Modal */
+#nav .nav {
+  background: #111;
+}
+#nav .nav a {
+  color: black;
+  font-style: italic;
+}
+#nav .nav li a:hover,
+#nav .nav li a:focus {
+  background: #86c5da;
+}
+#nav .nav .active {
+  font-weight: bold;
+  background: #72bcd4;
+}
+#nav .nav .active .nav {
+  display: block;
+}
+#nav .nav .nav a {
+  font-weight: normal;
+  font-size: .85em;
+}
+#nav .nav .nav span {
+  margin: 0 5px 0 2px;
+}
+#nav .nav .nav .active a,
+#nav .nav .nav .active:hover a,
+#nav .nav .nav .active:focus a {
+  font-weight: bold;
+  padding-left: 30px;
+  border-left: 5px solid black;
+}
+#nav .nav .nav .active span,
+#nav .nav .nav .active:hover span,
+#nav .nav .nav .active:focus span {
+  display: none;
+}
+#nav .application {
+  border-top: 1px solid #c1e1ec;
+}
+#nav .affix-top {
+  position: relative;
+}
+#nav .affix {
+  top: 180px;
+}
+#nav .affix,
+#nav .affix-bottom {
+  width: 213px;
+}
+#nav .affix-bottom {
+  position: absolute;
+}
+
+@media (min-width: 1200px) {
+  .affix,
+  .affix-bottom {
+    width: 263px;
+  }
+}
