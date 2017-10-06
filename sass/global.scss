@@ -490,7 +490,7 @@ select {
 //    @include respond-to (only-device){
 //        padding-top: 100px;
 //    }
-    #faq & {
+    .faq & {
         padding: 0;
     }
     h2, h3 {
@@ -502,7 +502,7 @@ select {
         font-weight: normal;
         font-family: 'helvetica', 'Arial', sans-serif, "Microsoft JhengHei";
     }
-    #about &, #faq & {
+    .about &, .faq & {
         h2, h3 {
             text-align: left;
             margin-bottom: 20px;
@@ -514,7 +514,7 @@ select {
 //            margin-bottom: 10px;
 //        }
     }
-    #faq & {
+    .faq & {
         h2 {
             font-size: $xxxxxl-font;
         }
@@ -735,11 +735,11 @@ footer {
     }
 }
 ///////// store
-#store {
-    h3 {
-        
-    }
-}
+//.store {
+//    h3 {
+//        
+//    }
+//}
 .store-list {
     width: 100%;
     padding: 20px;
@@ -828,7 +828,7 @@ footer {
         height: 84%;
     }
 }
-#faq {
+.faq {
     section {
         padding-top: 200px;
         margin-bottom: -160px;
