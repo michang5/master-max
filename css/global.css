@@ -428,6 +428,9 @@ select {
 }
 
 .main-container {
+  padding-top: 180px;
+}
+.index .main-container {
   padding-top: 156px;
 }
 .faq .main-container {
