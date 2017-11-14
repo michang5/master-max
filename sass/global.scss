@@ -531,6 +531,9 @@ select {
     @include respond-to (only-mobile){
 //        padding-top: 50px;
         padding-top: 100px;
+        .index & {
+            padding-top: 100px;
+        }
     }
 }
 .container {
@@ -1011,4 +1014,30 @@ footer {
             left: 6px;
         }
 	}
+}
+.line-it-button {
+    span {
+        display: none;
+    }
+}
+button.icon .text {
+    display: none!important;
+}
+.addFriend .icon, .share label, button.icon .text {
+    color: red;
+}
+button.icon {
+     border: 3px solid red!important;
+}
+.line-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 999;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    background-color: #01b901;
+    box-shadow: 0 1px 1px rgba($black,.6), 0 4px 10px rgba($black,.4);        
+    border-radius: 50%;
 }
